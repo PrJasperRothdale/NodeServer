@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Nouveau ticket</title>
+	<link rel="stylesheet" type="text/css" href="/css/style">
+	<link rel="shortcut icon" type="image/x-icon" href="/image/faviconne.ico">
+</head>
+<body>
+
+	<div id='app'>
+		<h1>Bonjour, Alice</h1>
+		<a href="/dc">Ce n'est pas vous ?</a>
+		<form id="newTicket" method="post" action="/nwTkt">
+			<p>Quel est votre problème</p>
+			<input type="checkbox" id="pbEstLogiciel"/>
+			<label for="pbEstLogiciel">Logiciel</label>
+
+			<input type="checkbox" id="pbEstMateriel"/>
+			<label for="pbEstMateriel">Materiel</label>
+
+			<div class="logicielDpd">
+				<select name="tyLogiciel">
+					<option value="null">-----</option>
+					<option value="1">Option logiciel 1</option>
+				</select>
+			</div>
+
+			<div class="materielDpd">
+				<select name="tyMateriel">
+					<option value="null">-----</option>
+					<option value="1">Option materiel 1</option>
+				</select>
+			</div>
+
+			<div>
+				<input type="file" name="attached" multiple/>
+				<textarea rows="20" cols="150" maxlength=3000>Placeholder</textarea>
+				<input type="text" id="numPoste"/>
+			</div>
+
+			<div id="prioriteContainer">
+				<input type="radio" id="prio1" name="priorite">
+				<label for="prio1">Faible</label>
+
+				<input type="radio" id="prio2" name="priorite">
+				<label for="prio2">Standard</label>
+
+				<input type="radio" id="prio3" name="priorite">
+				<label for="prio3">Urgent</label>
+			</div>
+
+		<input type="submit" id="subForm" value="Soumettre">
+		</form>
+
+		
+	</div>
+
+
+<script src='/js/vuejs.js'></script>
+<script src='/js/axios.js'></script>
+<script src='/js/main.js'></script>
+</body>
+</html>

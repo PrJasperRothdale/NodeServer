@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ticket #X</title>
+	<link rel="stylesheet" type="text/css" href="/css/style">
+	<link rel="shortcut icon" type="image/x-icon" href="/image/faviconne.ico">
+</head>
+<body>
+
+	<div id='app'>
+		<h1>Ticket #X</h1>
+
+
+		<div id="infosTicket">
+			<div>
+				<p>Demandeur : </p>
+				
+			</div>
+			<div>
+				<p>Poste : </p>
+				
+			</div>
+			<div>
+				<p>Type de problème : </p>
+				
+			</div>
+			<div>
+				<p>Type Détaillé : </p>
+				
+			</div>
+			<div>
+				<p>Objet Detaillé : </p>
+				
+			</div>
+		</div>
+
+
+		<div id="interventionDetails">
+			<form id="interDetails">
+				<select>
+					<option value="0">Type d'intervention</option>
+					<option value="1">Type 1</option>
+				</select>
+				<input type="date" name="dateIntervention">
+				<input type="submit">
+		</div>
+
+
+		<div id="commentaires">
+			<div id="descriptionPb">
+			</div>
+
+			<div id="listCommentaires">
+
+			</div>
+
+			
+			<form id="addCom">
+				<input type="text" name="newComText">
+				<input type="submit" name="btnAddCom">
+			</form>
+			
+
+		</div>
+
+		<div id="actions">
+			<button>Clore</button>
+			<button>Rediriger</button>
+			<button>Acceuil</button>
+		</div>
+	</div>
+
+
+<script src='/js/vuejs.js'></script>
+<script src='/js/axios.js'></script>
+<script src='/js/main.js'></script>
+</body>
+</html>
