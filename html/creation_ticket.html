@@ -13,10 +13,10 @@
 		<a href="/dc">Ce n'est pas vous ?</a>
 		<form id="newTicket" method="post" action="/nwTkt">
 			<p>Quel est votre problème</p>
-			<input type="checkbox" id="pbEstLogiciel"/>
+			<input type="checkbox" id="pbEstLogiciel" name="estLog"/>
 			<label for="pbEstLogiciel">Logiciel</label>
 
-			<input type="checkbox" id="pbEstMateriel"/>
+			<input type="checkbox" id="pbEstMateriel" name="estMat"/>
 			<label for="pbEstMateriel">Materiel</label>
 
 			<div class="logicielDpd">
@@ -33,20 +33,20 @@
 				</select>
 			</div>
 
-			<div>
-				<input type="file" name="attached" multiple/>
-				<textarea rows="20" cols="150" maxlength=3000>Placeholder</textarea>
-				<input type="text" id="numPoste"/>
-			</div>
+			
+			<input type="file" name="attached" multiple/>
+			<textarea rows="20" cols="150" name="description" maxlength=3000>Placeholder</textarea>
+			<input type="text" id="numPoste" name="poste"/>
+			
 
 			<div id="prioriteContainer">
-				<input type="radio" id="prio1" name="priorite">
+				<input type="radio" id="prio1" name="priorite" value="-1">
 				<label for="prio1">Faible</label>
 
-				<input type="radio" id="prio2" name="priorite">
+				<input type="radio" id="prio2" name="priorite" value="0">
 				<label for="prio2">Standard</label>
 
-				<input type="radio" id="prio3" name="priorite">
+				<input type="radio" id="prio3" name="priorite" value="1">
 				<label for="prio3">Urgent</label>
 			</div>
 
