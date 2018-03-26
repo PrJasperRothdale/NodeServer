@@ -70,8 +70,8 @@ app.get("/sloubi", function(req, res){
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.post("/nwTkt", function(req, res){
-	/*dbConn.then(function(_db){*/
-	db.collection('ticket').insertOne(req.body);
+
+	//db.collection('ticket').insertOne(req.body);
 
 	res.send('Données :\n' + JSON.stringify(req.body));
 })
