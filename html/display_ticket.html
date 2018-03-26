@@ -9,32 +9,42 @@
 <body>
 
 	<div id='app'>
-		<h1>Ticket #X</h1>
+		<h1>Tickets</h1>
 
 
 		<div id="infosTicket">
-			<div>
-				<p>Demandeur : </p>
+
+			<div v-for="ticket in tickets">
+
+				<span>Demandeur : {{ ticket.demandeur }}</span>
+				<br/>
 				
-			</div>
-			<div>
-				<p>Poste : </p>
-				
-			</div>
-			<div>
-				<p>Type de problème : </p>
-				
-			</div>
-			<div>
-				<p>Type Détaillé : </p>
-				
-			</div>
-			<div>
+				<span>Poste : {{ ticket.poste }}</span>
+				<br/>
+			
+				<span>Type de problème : </span>
+				<span v-if="ticket.estMat">Materiel </span>
+				<span v-if="(ticket.estMat && ticket.isLog)"> & </span>
+				<span v-if="ticket.isLog">Logiciel</span>
+				<br/>
+
+			
+			
+				<span v-if="(ticket.tyLogiciel || ticket.tyMateriel)">Type Détaillé : </span>
+				<span v-if="ticket.tyLogiciel">Option logiciel {{ticket.tyLogiciel}}</span>
+				<span v-if="(ticket.tyLogiciel && ticket.tyMateriel)"> & </span>
+				<span v-if="ticket.tyMateriel">Option materiel {{ticket.tyMateriel}}</span>
+				<br/>
+			
+			
 				<p>Objet Detaillé : </p>
-				
+			
+
+</br>
 			</div>
 		</div>
 
+<!--
 
 		<div id="interventionDetails">
 			<form id="interDetails">
@@ -69,6 +79,8 @@
 			<button>Rediriger</button>
 			<button>Acceuil</button>
 		</div>
+	-->
+
 	</div>
 
 

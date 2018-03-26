@@ -8,7 +8,8 @@ var app = new Vue({
 	created(){ this.load(); },
 	data : {
 		message: "Sloubi",
-		tickets: ""
+		tickets: [],
+		users: ""
 	},
 	methods: {
 		hop(){
@@ -22,6 +23,10 @@ var app = new Vue({
 			axios.get("/listAllTickets").then(
 				(response) => {
 					this.tickets = response.data.tickets;
+				});
+			axios.get("/listAllUsers").then(
+				(response) => {
+					this.users = response.data.users;
 				})
 		}
 	}

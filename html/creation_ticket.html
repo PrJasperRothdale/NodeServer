@@ -13,15 +13,8 @@
 		<a href="/dc">Ce n'est pas vous ?</a>
 		<form id="newTicket" method="post" action="/nwTkt">
 			<p>Quel est votre problème</p>
-<<<<<<< HEAD
-
-			<input type="checkbox" id="pbEstMateriel" name="isMat"/>
-=======
-			<input type="checkbox" id="pbEstLogiciel" name="estLog"/>
-			<label for="pbEstLogiciel">Logiciel</label>
 
 			<input type="checkbox" id="pbEstMateriel" name="estMat"/>
->>>>>>> f6b904bdc1d20351c7041f337cbd3c2d2780b6d4
 			<label for="pbEstMateriel">Materiel</label>
 
 			<input type="checkbox" id="pbEstLogiciel" name="isLog"/>
@@ -42,26 +35,12 @@
 				</select>
 			</div>
 
-<<<<<<< HEAD
+
 			<div>
-				<input type="file" name="piècesJointes" multiple/>
-				<textarea name="details" rows="20" cols="150" maxlength=3000>Placeholder</textarea>
-				<input type="text" id="numPoste"/>
+				<input type="file" name="attached" multiple/>
+				<textarea rows="20" cols="150" name="description" maxlength=3000>Placeholder</textarea>
+				<input type="text" id="numPoste" name="poste"/>
 			</div>
-
-			<div id="prioriteContainer">
-				<input type="radio" id="prio1" name="priorite" value="-1"/>
-				<label for="prio1">Faible</label>
-
-				<input type="radio" id="prio2" name="priorite" value="0"/>
-				<label for="prio2">Standard</label>
-
-				<input type="radio" id="prio3" name="priorite" value="1"/>
-=======
-			
-			<input type="file" name="attached" multiple/>
-			<textarea rows="20" cols="150" name="description" maxlength=3000>Placeholder</textarea>
-			<input type="text" id="numPoste" name="poste"/>
 			
 
 			<div id="prioriteContainer">
@@ -72,10 +51,10 @@
 				<label for="prio2">Standard</label>
 
 				<input type="radio" id="prio3" name="priorite" value="1">
->>>>>>> f6b904bdc1d20351c7041f337cbd3c2d2780b6d4
 				<label for="prio3">Urgent</label>
 			</div>
 
+		<input type="hidden" id="demandeur" name="demandeur" value="Non gere"/>
 		<input type="submit" id="subForm" value="Soumettre">
 		</form>
 

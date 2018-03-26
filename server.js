@@ -9,14 +9,14 @@ var db;
 MongoClient.connect('mongodb://localhost:27017/tests_maintenance',
     function(err,_db)  {
         if (err)
-            console.log("Erreur de connexion à mongodb");
+            console.log(err);
         else {
             console.log("Yeah! Connected!");
             db = _db;
         }
     });
 
-
+ 
 
 var app = express();
 var lesloub = 0;
@@ -72,6 +72,21 @@ app.get("/listAllTickets", function(req, res){
 
 })
 
+
+app.get("/listAllUsers", function(req, res){
+	var dbo = db.db("tests_maintenance");
+
+	dbo.collection("users").find({}).toArray(function(err,usersList){
+		res.json({users : usersList});
+
+	});
+
+})
+
+app.get("/dispTkt", function(req,res){
+	res.sendFile(__dirname+ "/html/display_ticket.html");
+})
+
 app.get("/message", function(req, res){
 
 	/*
@@ -108,13 +123,21 @@ app.get("/sloubi", function(req, res){
 	res.end("Jeu du sloubi : Sloubi "+lesloub);
 });
 
+app.get("/newOPuser", function(req, res){
+	res.sendFile(__dirname + "/html/new_OP.html");
+})
+
+app.get("/rvlOP", function(req, res){
+	res.sendFile(__dirname + "/html/display_OP.html");
+})
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.post("/nwTkt", function(req, res){
-<<<<<<< HEAD
+
 
 	//db.collection('ticket').insertOne(req.body);
-=======
+
 	/*
 	dbConn.then(function(_db){
 	db.collection('ticket').insertOne(req.body);
@@ -126,14 +149,26 @@ app.post("/nwTkt", function(req, res){
 	dbo.collection("tickets").insertOne(datas, function(err, res){
 		if (err)
 			throw err;
-		console.log("inseré");
+		console.log("insered");
 	})
->>>>>>> f6b904bdc1d20351c7041f337cbd3c2d2780b6d4
 
 	res.send('Données :\n' + JSON.stringify(req.body));
 
+})
 
 
+app.post("/nwOP", function(req,res){
+
+	var dbo = db.db("tests_maintenance");
+	var datas = req.body;
+
+	dbo.collection("users").insertOne(datas, function(err, res){
+		if (err)
+			throw err;
+		console.log("insered user");
+	})
+
+	res.send('Données :\n' + JSON.stringify(req.body));
 })
 
 app.listen(5453);
