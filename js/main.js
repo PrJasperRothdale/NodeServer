@@ -9,7 +9,7 @@ var app = new Vue({
 	data : {
 		message: "Sloubi",
 		tickets: [],
-		users: ""
+		users: []
 	},
 	methods: {
 		hop(){

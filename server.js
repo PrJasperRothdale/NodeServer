@@ -3,6 +3,8 @@ console.log("Je suis un serveur");
 var express = require("express");
 var MongoClient = require("mongodb").MongoClient;
 var bodyPaser = require("body-parser");
+var FormData = require('form-data');
+var fs = require('fs');
 
 var db;
 
@@ -145,6 +147,21 @@ app.post("/nwTkt", function(req, res){
 
 	var dbo = db.db("tests_maintenance");
 	var datas = req.body;
+
+/*
+	if( datas.attached ){
+		for( var i= 0; len = datas.attached.length; i < len ){
+
+			fs.writeFile("/attached", datas.attached[i].content, function(err){
+				if(err)
+					console.log(err);
+				console.log("File saved.");
+			});
+			i++;
+		}
+	}
+
+	*/
 
 	dbo.collection("tickets").insertOne(datas, function(err, res){
 		if (err)

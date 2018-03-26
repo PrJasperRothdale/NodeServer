@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Ticket #X</title>
-	<link rel="stylesheet" type="text/css" href="/css/style">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<link rel="shortcut icon" type="image/x-icon" href="/image/faviconne.ico">
 </head>
 <body>
@@ -37,14 +37,19 @@
 				<br/>
 			
 			
-				<p>Objet Detaillé : </p>
+				<span>Objet Detaillé : </span>
+				<span v-if="ticket.description">{{ticket.description}}</span>
+				<br/>
 			
+				<span v-if="ticket.attached">PJ : {{ ticket.attached }}</span>
 
-</br>
+				<br/>
+
+<br/>
 			</div>
 		</div>
 
-<!--
+
 
 		<div id="interventionDetails">
 			<form id="interDetails">
@@ -79,7 +84,7 @@
 			<button>Rediriger</button>
 			<button>Acceuil</button>
 		</div>
-	-->
+	
 
 	</div>
 
