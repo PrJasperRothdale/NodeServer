@@ -1,12 +1,19 @@
 {
+<<<<<<< HEAD
   "name": "ticket",
   "version": "0.0.1",
   "description": "Ce que vous voulez vous pouvez meme laisser une chaine vide si vous voulez.",
+=======
+  "name": "nodeserver",
+  "version": "1.0.0",
+  "description": "Pack",
+>>>>>>> f6b904bdc1d20351c7041f337cbd3c2d2780b6d4
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+<<<<<<< HEAD
   "author": "killian.lachaux@etu.univ-smb.fr",
   "license": "CC-BY-NC-SA-4.0",
   "dependencies": {
@@ -16,4 +23,22 @@
   },
   "devDependencies": {},
   "keywords": []
+=======
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrJasperRothdale/NodeServer.git"
+  },
+  "author": "Papa Killian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PrJasperRothdale/NodeServer/issues"
+  },
+  "homepage": "https://github.com/PrJasperRothdale/NodeServer#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongodb": "^3.0.5",
+    "mongoose": "^5.0.11",
+    "npm": "^5.8.0"
+  }
+>>>>>>> f6b904bdc1d20351c7041f337cbd3c2d2780b6d4
 }

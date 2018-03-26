@@ -17,6 +17,7 @@ MongoClient.connect('mongodb://localhost:27017/tests_maintenance',
     });
 
 
+
 var app = express();
 var lesloub = 0;
 
@@ -37,13 +38,44 @@ app.get("/dc", function(req, res){
 	res.sendFile(__dirname + "/html/disconnect.html");
 });
 
-app.get("/OPaccueil", function(req, res){
+app.get("/OPacceuil", function(req, res){
 	res.sendFile(__dirname + "/html/op_accueil.html");
+	
+/*
+	var dbo = db.db("tests_maintenance");
+
+	dbo.collection("tickets").find({}, function(err,tickets){
+		if(err){
+			console.log("Erreur");
+			console.log(err);
+			//res.json(err);
+		}
+		else{
+			console.log("Datas");
+			console.log(tickets);
+			//res.json(tickets);
+		}
+	})
+
+	res.sendFile(__dirname + "/html/op_accueil.html");
+
+*/
 });
 
+app.get("/listAllTickets", function(req, res){
+	var dbo = db.db("tests_maintenance");
+
+	dbo.collection("tickets").find({}).toArray(function(err,ticketsList){
+		res.json({tickets : ticketsList});
+
+	});
+
+})
+
 app.get("/message", function(req, res){
+
 	/*
-	db.collection("message").find()
+	dbo.collection("message").find()
 	.toArray(function(err,message){
 		console.log(message);
 		res.json({ message: message[0].text});
@@ -53,7 +85,16 @@ app.get("/message", function(req, res){
 
 
 app.get("/rvldb", function(req, res){
-	
+
+	var dbo = db.db("tests_maintenance");
+
+
+	dbo.collection("tickets").find({}).toArray(function(err,ticketsList){
+
+		res.json({tickets : ticketsList});
+
+	});
+
 })
 
 
@@ -70,10 +111,29 @@ app.get("/sloubi", function(req, res){
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.post("/nwTkt", function(req, res){
+<<<<<<< HEAD
 
 	//db.collection('ticket').insertOne(req.body);
+=======
+	/*
+	dbConn.then(function(_db){
+	db.collection('ticket').insertOne(req.body);
+	*/
+
+	var dbo = db.db("tests_maintenance");
+	var datas = req.body;
+
+	dbo.collection("tickets").insertOne(datas, function(err, res){
+		if (err)
+			throw err;
+		console.log("inseré");
+	})
+>>>>>>> f6b904bdc1d20351c7041f337cbd3c2d2780b6d4
 
 	res.send('Données :\n' + JSON.stringify(req.body));
+
+
+
 })
 
 app.listen(5453);
